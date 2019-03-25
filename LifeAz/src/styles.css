@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
+@font-face {
+    font-family: Gotham;
+    src: url(../src/assets/fonts/GothamBook.ttf);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Gotham;
+    margin: 0;
+}
+
+h1 {
+    font-weight: initial;
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: initial;
+}
+
+div {
+    font-size: 1.8rem;
+}
+
+.basic-font {
+    font-size: 1.4rem;
+}

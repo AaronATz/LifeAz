@@ -1,0 +1,44 @@
+<div>
+    <div fxLayoutAlign="none center" fxLayout="column">
+        <h1 style="text-align: center">
+            <span style="font-size: 2rem">Déjà</span><br><span style="font-weight: bold">108</span> vies de sauvées !
+        </h1>
+    </div>
+    <div class="testimonials">
+        <div style="margin-left: 2rem;" fxLayout="row">
+            <h2>Témoignages</h2>
+            <mat-form-field style="margin-left: 1rem; width: 13rem">
+                <input matInput [formControl]="searchTestimonials" id="research-testimonials" type="text" placeholder="Rechercher" [(ngModel)]="value">
+                <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                    <i class="material-icon"></i>
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field> 
+        </div>
+        <mat-divider style="margin-bottom: 1.5rem; margin-left: 2rem;"></mat-divider>
+        <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" *ngIf="this.value.length == 0">
+            <mat-grid-tile *ngFor="let userInformations of data" fxLayoutGap="1rem">
+                <div class="box-testimonials basic-font" fxLayout="column">
+                    <div class="container-testimonials-header" fxLayoutAlign="none center" fxLayout="column" fxLayoutGap="0.5rem">
+                        <div class="container-title-testimonials">{{ userInformations.firstName }} {{ userInformations.lastName }}</div>
+                        <div class="container-date-testimonials">Le {{ userInformations.date }}</div>
+                        <mat-divider style="color: #3ED3EA"></mat-divider>
+                    </div>
+                    <div style="height: 22rem" ellipsis>{{ userInformations.content }}</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" *ngIf="this.value.length > 0">
+            <mat-grid-tile *ngFor="let userInformations of result" fxLayoutGap="1rem">
+                <div class="box-testimonials basic-font" fxLayout="column">
+                    <div class="container-testimonials-header" fxLayoutAlign="none center" fxLayout="column" fxLayoutGap="0.5rem">
+                        <div class="container-title-testimonials">{{ userInformations.firstName }} {{ userInformations.lastName }}</div>
+                        <div class="container-date-testimonials">Le {{ userInformations.date }}</div>
+                        <mat-divider style="color: #3ED3EA"></mat-divider>
+                    </div>
+                    <div style="height: 22rem" ellipsis>{{ userInformations.content }}</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
